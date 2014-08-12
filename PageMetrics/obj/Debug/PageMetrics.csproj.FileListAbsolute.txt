@@ -1,0 +1,16 @@
+C:\Users\nino.khodabandeh\Projects\PageMetrics\PageMetrics\bin\Debug\PageMetrics.exe.config
+C:\projects\PageMetrics\PageMetrics\bin\Debug\PageMetrics.exe.config
+C:\projects\PageMetrics\PageMetrics\bin\Debug\PageMetrics.exe
+C:\projects\PageMetrics\PageMetrics\bin\Debug\PageMetrics.pdb
+C:\projects\PageMetrics\PageMetrics\bin\Debug\kafka-net.dll
+C:\projects\PageMetrics\PageMetrics\bin\Debug\kafka-net.pdb
+C:\projects\PageMetrics\PageMetrics\obj\Debug\PageMetrics.exe
+C:\projects\PageMetrics\PageMetrics\obj\Debug\PageMetrics.pdb
+C:\projects\PageMetrics\PageMetrics\bin\Debug\PageMetrics.KafkaClient.dll
+C:\projects\PageMetrics\PageMetrics\bin\Debug\Newtonsoft.Json.dll
+C:\projects\PageMetrics\PageMetrics\bin\Debug\PageMetrics.KafkaClient.pdb
+C:\projects\PageMetrics\PageMetrics\bin\Debug\Newtonsoft.Json.xml
+C:\projects\PageMetrics\PageMetrics\obj\Debug\PageMetrics.csprojResolveAssemblyReference.cache
+C:\projects\PageMetrics\PageMetrics\bin\Debug\StackExchange.Redis.dll
+C:\projects\PageMetrics\PageMetrics\bin\Debug\StackExchange.Redis.pdb
+C:\projects\PageMetrics\PageMetrics\bin\Debug\StackExchange.Redis.xml

@@ -1,0 +1,9 @@
+C:\projects\PageMetrics\PageMetrics.KafkaClient\bin\Debug\PageMetrics.KafkaClient.dll
+C:\projects\PageMetrics\PageMetrics.KafkaClient\bin\Debug\PageMetrics.KafkaClient.pdb
+C:\projects\PageMetrics\PageMetrics.KafkaClient\bin\Debug\kafka-net.dll
+C:\projects\PageMetrics\PageMetrics.KafkaClient\bin\Debug\Newtonsoft.Json.dll
+C:\projects\PageMetrics\PageMetrics.KafkaClient\bin\Debug\kafka-net.pdb
+C:\projects\PageMetrics\PageMetrics.KafkaClient\bin\Debug\Newtonsoft.Json.xml
+C:\projects\PageMetrics\PageMetrics.KafkaClient\obj\Debug\PageMetrics.KafkaClient.csprojResolveAssemblyReference.cache
+C:\projects\PageMetrics\PageMetrics.KafkaClient\obj\Debug\PageMetrics.KafkaClient.dll
+C:\projects\PageMetrics\PageMetrics.KafkaClient\obj\Debug\PageMetrics.KafkaClient.pdb

@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageMetrics", "PageMetrics\PageMetrics.csproj", "{50718820-4319-4F78-9ECE-CD6E61F85709}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageMetrics.API", "PageMetrics.API\PageMetrics.API.csproj", "{D76C6176-8633-4CDA-9284-69E3A6CC17CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageMetrics.KafkaClient", "PageMetrics.KafkaClient\PageMetrics.KafkaClient.csproj", "{048E0CA1-FF96-4AE8-9042-777782C9E86B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageMetrics.PersistentDataStore", "PageMetrics.PersistentDataStore\PageMetrics.PersistentDataStore.csproj", "{2B4B787B-EE37-4DA6-BD36-CCABAD598029}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50718820-4319-4F78-9ECE-CD6E61F85709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50718820-4319-4F78-9ECE-CD6E61F85709}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50718820-4319-4F78-9ECE-CD6E61F85709}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50718820-4319-4F78-9ECE-CD6E61F85709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D76C6176-8633-4CDA-9284-69E3A6CC17CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D76C6176-8633-4CDA-9284-69E3A6CC17CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D76C6176-8633-4CDA-9284-69E3A6CC17CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D76C6176-8633-4CDA-9284-69E3A6CC17CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{048E0CA1-FF96-4AE8-9042-777782C9E86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{048E0CA1-FF96-4AE8-9042-777782C9E86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{048E0CA1-FF96-4AE8-9042-777782C9E86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{048E0CA1-FF96-4AE8-9042-777782C9E86B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B4B787B-EE37-4DA6-BD36-CCABAD598029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B4B787B-EE37-4DA6-BD36-CCABAD598029}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B4B787B-EE37-4DA6-BD36-CCABAD598029}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B4B787B-EE37-4DA6-BD36-CCABAD598029}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
