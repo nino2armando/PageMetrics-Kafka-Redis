@@ -57,7 +57,8 @@ namespace PageMetrics
             //        }
             //    });
 
-
+            var redisData = pageRepository.GetAll();
+            DisplayAll(redisData);
             // CONSUMER READING OFF THE QUEUE + REDIS
 
             var clientSettings = new MessageBusClient();
@@ -67,23 +68,37 @@ namespace PageMetrics
             var allData = consumer.Consume();
             Task.Factory.StartNew(() =>
                 {
-                    int i = 0;
                     foreach (var data in allData)
                     {
                         if (string.IsNullOrEmpty(data.Value.Key))
                         {
                             continue;
                         }
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine(string.Format("Reading {0} message with Kafka key => {1} and Redis Id => {2}", i, data.Value.Key, data.Value.Id));
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("--------------------------------------------------------------------------------------------------------------");
-                        var repo = pageRepository.Store(data.Value);
-                        i++;
+                        var page = pageRepository.Store(data.Value);
+                        DisplaySingle(page);
                     }
                 });
 
             Console.ReadKey();
+        }
+
+        public static void DisplayAll(IList<PageModel> redisData)
+        {
+            foreach (var pageModel in redisData)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(string.Format("Reading message with Kafka key => {0} and Redis Id => {1}", pageModel.Key, pageModel.Id));
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("--------------------------------------------------------------------------------------------------------------");
+            }
+        }
+
+        public static void DisplaySingle(PageModel model)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(string.Format("Reading message with Kafka key => {0} and Redis Id => {1}", model.Key, model.Id));
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------");
         }
     }
 }
