@@ -1,52 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web.Mvc;
-using PageMetrics.API.Models;
+using System.Web;
+using System.Web.Http;
+using Newtonsoft.Json.Linq;
 using PageMetrics.KafkaClient;
+using PageMetrics.PersistentDataStore;
+using PageMetrics.PersistentDataStore.Models;
+using ServiceStack.Redis;
 
 namespace PageMetrics.API.Controllers
 {
-    public class MetricController : Controller
+    [Authorize]
+    public class MetricController : ApiController
     {
-        //
-        // GET: /Metric/
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public void PostPageLoad(string loadTime)
+        [AllowAnonymous]
+        [HttpPost]
+        public HttpResponseMessage Post([FromBody] JObject loadTime)
         {
             var clientSettings = new MessageBusClient();
             var router = clientSettings.GetClientRouter();
-            var producer = new JsonProducer(router);
-
+            
             var page = new PageModel
+            {
+                Id = Guid.NewGuid().ToString("N"),
+                Key = Guid.NewGuid().ToString("N"),
+                Source = new Dictionary<string, string>
+                        {
+                            {"Request.ApplicationPath", HttpContext.Current.Request.ApplicationPath},
+                            {"Request.PhysicalApplicationPath", HttpContext.Current.Request.PhysicalApplicationPath},
+                            {"Request.PhysicalPath", HttpContext.Current.Request.PhysicalPath},
+                        },
+                Metric = new MetricModel
                 {
-                    Id = Guid.NewGuid(),
-                    Source = new Dictionary<string, string>
-                        {
-                            {"Request.ApplicationPath", Request.ApplicationPath},
-                            {"Request.PhysicalApplicationPath", Request.PhysicalApplicationPath},
-                            {"Request.PhysicalPath", Request.PhysicalPath},
-                        },
-                    Metric = new MetricModel
-                        {
-                            Key = MetricType.LoadTime.ToString(),
-                            Value = loadTime
-                        },
-                        Time = DateTime.UtcNow
-                };
-
+                    Key = MetricType.LoadTime.ToString(),
+                    Value = loadTime.ToString()
+                },
+                Time = DateTime.UtcNow
+            };
 
             Task.Factory.StartNew(() =>
-                {
-                    var producerusingClient = new JsonProducer(router);
-                    // todo: topics need to be maintained dynamically
-                    producerusingClient.Publish("PageLoadTime", new List<PageModel> { page });
-                });
+            {
+                var producerusingClient = new JsonProducer(router);
+                // todo: topics need to be maintained dynamically
+                producerusingClient.Publish("PageLoadTime", new List<PageModel> { page });
+            });
+
+            return new HttpResponseMessage(HttpStatusCode.Created);
         }
 
         public void PostOtherEvents(string eventarg)

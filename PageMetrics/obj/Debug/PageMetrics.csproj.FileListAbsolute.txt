@@ -11,6 +11,12 @@ C:\projects\PageMetrics\PageMetrics\bin\Debug\Newtonsoft.Json.dll
 C:\projects\PageMetrics\PageMetrics\bin\Debug\PageMetrics.KafkaClient.pdb
 C:\projects\PageMetrics\PageMetrics\bin\Debug\Newtonsoft.Json.xml
 C:\projects\PageMetrics\PageMetrics\obj\Debug\PageMetrics.csprojResolveAssemblyReference.cache
-C:\projects\PageMetrics\PageMetrics\bin\Debug\StackExchange.Redis.dll
-C:\projects\PageMetrics\PageMetrics\bin\Debug\StackExchange.Redis.pdb
-C:\projects\PageMetrics\PageMetrics\bin\Debug\StackExchange.Redis.xml
+C:\projects\PageMetrics\PageMetrics\bin\Debug\PageMetrics.PersistentDataStore.dll
+C:\projects\PageMetrics\PageMetrics\bin\Debug\PageMetrics.PersistentDataStore.pdb
+C:\projects\PageMetrics\PageMetrics\bin\Debug\ServiceStack.Interfaces.dll
+C:\projects\PageMetrics\PageMetrics\bin\Debug\ServiceStack.Redis.dll
+C:\projects\PageMetrics\PageMetrics\bin\Debug\ServiceStack.Redis.xml
+C:\projects\PageMetrics\PageMetrics\bin\Debug\ServiceStack.Common.dll
+C:\projects\PageMetrics\PageMetrics\bin\Debug\ServiceStack.Text.dll
+C:\projects\PageMetrics\PageMetrics\bin\Debug\ServiceStack.Common.xml
+C:\projects\PageMetrics\PageMetrics\bin\Debug\ServiceStack.Text.xml

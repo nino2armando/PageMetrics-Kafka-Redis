@@ -1,0 +1,39 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    //Layout = "_Layout";
+}
+
+@section TopPageScript
+{
+    <script type="text/javascript">
+        var start = Date.now();
+    </script>
+}
+
+
+<h2>title</h2>
+
+
+@section BottomPageScript
+{
+    <script type="text/javascript">
+        $(function() {
+            var total = Date.now() - start;
+            callApi(total);
+        });
+
+        function callApi(totalTimeElapsed) {
+            var dataJson = { loadTime: totalTimeElapsed };
+            $.ajax({
+                type: 'POST',
+                url: 'api/metric',
+                data: JSON.stringify(dataJson),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json'
+            });
+        }
+
+    </script>
+}

@@ -1,0 +1,12 @@
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\bin\Debug\PageMetrics.PersistentDataStore.dll
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\bin\Debug\PageMetrics.PersistentDataStore.pdb
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\obj\Debug\PageMetrics.PersistentDataStore.dll
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\obj\Debug\PageMetrics.PersistentDataStore.pdb
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\obj\Debug\PageMetrics.PersistentDataStore.csprojResolveAssemblyReference.cache
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\bin\Debug\ServiceStack.Common.dll
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\bin\Debug\ServiceStack.Interfaces.dll
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\bin\Debug\ServiceStack.Redis.dll
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\bin\Debug\ServiceStack.Text.dll
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\bin\Debug\ServiceStack.Common.xml
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\bin\Debug\ServiceStack.Redis.xml
+C:\projects\PageMetrics\PageMetrics.PersistentDataStore\bin\Debug\ServiceStack.Text.xml

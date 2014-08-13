@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,7 +9,10 @@ using KafkaNet;
 using KafkaNet.Model;
 using KafkaNet.Protocol;
 using PageMetrics.KafkaClient;
-using StackExchange.Redis;
+using PageMetrics.PersistentDataStore;
+using PageMetrics.PersistentDataStore.Models;
+using ServiceStack.Redis;
+
 
 namespace PageMetrics
 {
@@ -15,31 +20,69 @@ namespace PageMetrics
     {
         static void Main(string[] args)
         {
-            ////var options = new KafkaOptions(new Uri("http://localhost:9092"));
-            ////var router = new BrokerRouter(options);
-            
-            //// PRODUCER
-            ////var producer = new Producer(router);
-            ////producer.SendMessageAsync("test2", new[] {new Message {Value = Guid.NewGuid().ToString()}});
+            var redisUri = ConfigurationManager.AppSettings["Redis_Server_Uri"];
+            IRedisClientsManager clientManger = new PooledRedisClientManager(redisUri);
+            PageRepository pageRepository = new PageRepository(clientManger.GetClient());
 
-            //// producer using client
-            ////var producerusingClient = new JsonProducer(router);
-            ////producerusingClient.Publish("test2", new[] {new Message {Key = "hoy",Value = Guid.NewGuid().ToString()}});
+            // bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+            // bin\windows\kafka-server-start.bat config\server.properties
+            // bin\windows\kafka-console-consumer.bat --zookeeper localhost:2181 --topic PageLoadTime --from-beginning
+            // kafka-console-producer.bat --broker-list localhost:9092 --topic PageLoadTime
 
-            ////CONSUMER
-            ////Task.Factory.StartNew(() =>
-            ////    {
-            ////        var consumer = new Consumer(new ConsumerOptions("test2", router));
 
-            ////        foreach (var data in consumer.Consume())
-            ////        {
-            ////            Console.WriteLine(data.Value);
-            ////        }
-            ////    });
+            //// CONSUMER READING OFF THE QUEUE
+            //var options = new KafkaOptions(new Uri("http://localhost:9092"));
+            //var router = new BrokerRouter(options);
 
-            var conn = ConnectionMultiplexer.Connect("192.168.56.102:6379");
+            //var redisClient = new RedisClient("127.0.0.1:6379");
+            //var db = redisClient.Instance(1);
 
-            
+            //var consumer = new Consumer(new ConsumerOptions("PageLoadTime", router));
+            //var allData = consumer.Consume();
+            //Task.Factory.StartNew(() =>
+            //    {
+            //        int i = 0;
+            //        foreach (var data in allData)
+            //        {
+            //            if (string.IsNullOrEmpty(data.Key))
+            //            {
+            //                continue;
+            //            }
+            //            Console.ForegroundColor = ConsoleColor.Green;
+            //            Console.WriteLine(string.Format("Reading {0} message => {1}", i, data.Value));
+            //            Console.ForegroundColor = ConsoleColor.Yellow;
+            //            Console.WriteLine("----------------------------------------------------------");
+            //            db.StringSetAsync(data.Key, data.Value.ToString(CultureInfo.InvariantCulture));
+            //            i++;
+            //        }
+            //    });
+
+
+            // CONSUMER READING OFF THE QUEUE + REDIS
+
+            var clientSettings = new MessageBusClient();
+            var router = clientSettings.GetClientRouter();
+            var consumer = new JsonConsumer<PageModel>(new ConsumerOptions("PageLoadTime", router));
+
+            var allData = consumer.Consume();
+            Task.Factory.StartNew(() =>
+                {
+                    int i = 0;
+                    foreach (var data in allData)
+                    {
+                        if (string.IsNullOrEmpty(data.Value.Key))
+                        {
+                            continue;
+                        }
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine(string.Format("Reading {0} message with Kafka key => {1} and Redis Id => {2}", i, data.Value.Key, data.Value.Id));
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("--------------------------------------------------------------------------------------------------------------");
+                        var repo = pageRepository.Store(data.Value);
+                        i++;
+                    }
+                });
+
             Console.ReadKey();
         }
     }

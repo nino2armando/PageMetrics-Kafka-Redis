@@ -33,3 +33,14 @@ C:\projects\PageMetrics\PageMetrics.API\bin\kafka-net.dll
 C:\projects\PageMetrics\PageMetrics.API\bin\PageMetrics.KafkaClient.dll
 C:\projects\PageMetrics\PageMetrics.API\bin\PageMetrics.KafkaClient.pdb
 C:\projects\PageMetrics\PageMetrics.API\bin\kafka-net.pdb
+C:\projects\PageMetrics\PageMetrics.API\bin\PageMetrics.PersistentDataStore.dll
+C:\projects\PageMetrics\PageMetrics.API\bin\PageMetrics.PersistentDataStore.pdb
+C:\projects\PageMetrics\PageMetrics.API\bin\Autofac.dll
+C:\projects\PageMetrics\PageMetrics.API\bin\Autofac.Integration.WebApi.dll
+C:\projects\PageMetrics\PageMetrics.API\bin\ServiceStack.Interfaces.dll
+C:\projects\PageMetrics\PageMetrics.API\bin\ServiceStack.Redis.dll
+C:\projects\PageMetrics\PageMetrics.API\bin\ServiceStack.Text.dll
+C:\projects\PageMetrics\PageMetrics.API\bin\ServiceStack.Common.dll
+C:\projects\PageMetrics\PageMetrics.API\bin\Autofac.xml
+C:\projects\PageMetrics\PageMetrics.API\bin\Autofac.Integration.WebApi.xml
+C:\projects\PageMetrics\PageMetrics.API\bin\ServiceStack.Redis.xml
