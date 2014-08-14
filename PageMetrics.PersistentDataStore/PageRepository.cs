@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using PageMetrics.PersistentDataStore.Models;
+using ServiceStack.Messaging;
 using ServiceStack.Redis;
 
 namespace PageMetrics.PersistentDataStore
@@ -36,6 +37,28 @@ namespace PageMetrics.PersistentDataStore
             //    page.Key = Guid.NewGuid();
             //}
             return typedClient.Store(page);
+        }
+
+        public void BatchStore(IList<PageModel> list)
+        {
+            var typeClient = _redisClient.As<PageModel>();
+
+            using (var subscription = typeClient.RedisClient.CreateSubscription())
+            {
+                subscription.OnUnSubscribe = channel =>
+                                             Console.WriteLine("Unsubscribed");
+                typeClient.StoreAll(list);
+                subscription.OnMessage = (channel, msg) =>
+                    {
+                        
+                        if (msg == "STOP")
+                        {
+                            Console.WriteLine("Stopped");
+                            subscription.UnSubscribeFromAllChannels(); // unblock thread
+                        }
+                    };
+                subscription.SubscribeToChannels(QueueNames.TopicIn);
+            }
         }
     }
 }

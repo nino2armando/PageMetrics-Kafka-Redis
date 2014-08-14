@@ -66,6 +66,7 @@ namespace PageMetrics
             var consumer = new JsonConsumer<PageModel>(new ConsumerOptions("PageLoadTime", router));
 
             var allData = consumer.Consume();
+
             Task.Factory.StartNew(() =>
                 {
                     foreach (var data in allData)
@@ -74,6 +75,7 @@ namespace PageMetrics
                         {
                             continue;
                         }
+
                         var page = pageRepository.Store(data.Value);
                         DisplaySingle(page);
                     }

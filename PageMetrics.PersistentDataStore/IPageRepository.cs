@@ -8,5 +8,6 @@ namespace PageMetrics.PersistentDataStore
         IList<PageModel> GetAll();
         PageModel Get(string id);
         PageModel Store(PageModel page);
+        void BatchStore(IList<PageModel> list);
     }
 }
