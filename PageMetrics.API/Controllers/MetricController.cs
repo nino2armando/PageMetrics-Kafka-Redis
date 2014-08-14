@@ -45,6 +45,7 @@ namespace PageMetrics.API.Controllers
             {
                 var producerusingClient = new JsonProducer(router);
                 // todo: topics need to be maintained dynamically
+                // todo: we are not specifying the partition
                 producerusingClient.Publish("PageLoadTime", new List<PageModel> { page });
             });
 
