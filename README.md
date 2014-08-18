@@ -5,11 +5,10 @@ PageMetrics + Apache Kafka + Redis
 
 Metrics RoadMap
 ===========
-We can introduce other metric types:
-
-Markup : * Counters --> count any type of event ('some.custom.events',10)
-         * Timers --> how long something took
-         * Sets --> count of unique values passed to a key
+- We can introduce other metric types:
+        - Counters --> count any type of event ('some.custom.events',10
+        - Timers --> how long something took
+        - Sets --> count of unique values passed to a key
 
 Kafka commands
 ===========
