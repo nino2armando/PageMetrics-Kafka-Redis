@@ -3,6 +3,13 @@ PageMetrics + Apache Kafka + Redis
 ![alt tag](https://github.com/nino2armando/PageMetrics/blob/master/etc/IMG_20140813_141139.jpg)
 
 
+Metrics RoadMap
+===========
+- We can introduce other metric types:
+  - Counters --> count any type of event ('some.custom.events, 10)
+  - Timers --> how long something took
+  - Sets --> count of unique values passed to a key
+
 Kafka commands
 ===========
 ```
