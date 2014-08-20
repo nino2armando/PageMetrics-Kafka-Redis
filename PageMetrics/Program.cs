@@ -67,6 +67,7 @@ namespace PageMetrics
 
             var allData = consumer.Consume();
 
+          
             Task.Factory.StartNew(() =>
                 {
                     foreach (var data in allData)

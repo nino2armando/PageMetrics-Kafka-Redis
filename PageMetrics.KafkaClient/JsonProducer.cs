@@ -26,7 +26,7 @@ namespace PageMetrics.KafkaClient
         private static IEnumerable<Message> ConvertToKafkaMessage<T>(IEnumerable<T> messages) where T : class
         {
             var hasKey = typeof(T).GetProperty("Key", typeof(string)) != null;
-
+               
             return messages.Select(m => new Message
             {
                 Key = hasKey ? GetKeyPropertyValue(m) : null,

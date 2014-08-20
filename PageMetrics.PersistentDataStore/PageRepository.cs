@@ -58,7 +58,7 @@ namespace PageMetrics.PersistentDataStore
                         }
                     };
                 subscription.SubscribeToChannels(QueueNames.TopicIn);
-            
+                
             }
         }
     }
